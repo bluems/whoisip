@@ -1,0 +1,132 @@
+object Form2: TForm2
+  Left = 0
+  Top = 0
+  Caption = 'Form2'
+  ClientHeight = 687
+  ClientWidth = 796
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object Layout1: TLayout
+    Align = Top
+    Size.Width = 796.000000000000000000
+    Size.Height = 81.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Layout2: TLayout
+      Align = Right
+      Position.X = 696.000000000000000000
+      Size.Width = 100.000000000000000000
+      Size.Height = 81.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object btnSearch: TButton
+        Align = Center
+        Size.Width = 80.000000000000000000
+        Size.Height = 55.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        Text = 'Search!'
+      end
+    end
+    object Edit1: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Center
+      TabOrder = 1
+    end
+  end
+  object Layout3: TLayout
+    Align = Client
+    Size.Width = 796.000000000000000000
+    Size.Height = 606.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 2
+    object layIpInfo: TLayout
+      Align = Top
+      Size.Width = 796.000000000000000000
+      Size.Height = 225.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      object BitmapAnimation1: TBitmapAnimation
+        Duration = 0.200000002980232200
+      end
+      object Layout4: TLayout
+        Align = Left
+        Size.Width = 377.000000000000000000
+        Size.Height = 225.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object Text1: TText
+          Align = Top
+          Size.Width = 377.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          Text = 'IP Infomations'
+        end
+        object ListView1: TListView
+          ItemAppearanceClassName = 'TListItemAppearance'
+          ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+          HeaderAppearanceClassName = 'TListHeaderObjects'
+          FooterAppearanceClassName = 'TListHeaderObjects'
+          Align = Client
+          Size.Width = 377.000000000000000000
+          Size.Height = 175.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 1
+        end
+      end
+    end
+    object layAsnInfo: TLayout
+      Align = Client
+      Size.Width = 796.000000000000000000
+      Size.Height = 381.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+    end
+  end
+  object RESTClient1: TRESTClient
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'UTF-8, *;q=0.8'
+    BaseURL = 'https://ipinfo.io'
+    Params = <>
+    HandleRedirects = True
+    RaiseExceptionOn500 = False
+    Left = 280
+    Top = 80
+  end
+  object RESTRequest1: TRESTRequest
+    Client = RESTClient1
+    Params = <
+      item
+        name = 'token'
+        Value = '3aeb0ebf133540'
+      end>
+    Response = RESTResponse1
+    SynchronizedEvents = False
+    Left = 288
+    Top = 88
+  end
+  object RESTResponse1: TRESTResponse
+    ContentType = 'application/json'
+    Left = 296
+    Top = 96
+  end
+  object RESTResponseDataSetAdapter1: TRESTResponseDataSetAdapter
+    Dataset = FDMemTable1
+    FieldDefs = <>
+    Response = RESTResponse1
+    Left = 304
+    Top = 104
+  end
+  object FDMemTable1: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired]
+    UpdateOptions.CheckRequired = False
+    Left = 312
+    Top = 112
+  end
+end
