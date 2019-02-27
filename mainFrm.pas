@@ -46,6 +46,9 @@ implementation
 
 {$R *.fmx}
 
+// Check Virtual IP
+// Result:  true - Virtual IP
+//          false - Real IP
 function chkVirtualIP(const AValue:string):boolean;
 var
   sList:TStringList;
@@ -64,8 +67,8 @@ begin
     sList.Free;
   end;
 
-  Result:= false;
-  case ipList[0] of
+  Result:= false; //Return Init.
+  case ipList[0] of   //Virtual IP List
     10,127: Result:=true;
     169: if ipList[1] = 254 then Result:= true;
     172: if (ipList[1] > 15) and (ipList[1] < 31) then Result:= true;
@@ -76,12 +79,15 @@ end;
 procedure TForm2.FormShow(Sender: TObject);
 var I:integer;
 begin
+  // Find RealIP
   for I := 0 to ipwIPInfo1.AdapterCount-1 do
   begin
     ipwIPInfo1.AdapterIndex := I;
     if chkVirtualIP(ipwIPInfo1.AdapterIPAddress) then Continue;
 
     edtIPorAS.Text := ipwIPInfo1.AdapterIPAddress;
+
+    // if you found first real ip, do breaking;
     Break;
   end;
 end;
