@@ -315,7 +315,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="WhoisIP.pas">
+        <DCCReference Include="mainFrm.pas">
             <Form>Form2</Form>
             <FormType>fmx</FormType>
         </DCCReference>

@@ -30,7 +30,7 @@ object Form2: TForm2
         Text = 'Search!'
       end
     end
-    object Edit1: TEdit
+    object edtIPorAS: TEdit
       Touch.InteractiveGestures = [LongTap, DoubleTap]
       Align = Center
       TabOrder = 1

@@ -3,7 +3,7 @@ program WhoisIP;
 uses
   System.StartUpCopy,
   FMX.Forms,
-  WhoisIP in 'WhoisIP.pas' {Form2};
+  mainFrm in 'mainFrm.pas' {Form2};
 
 {$R *.res}
 

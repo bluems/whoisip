@@ -1,4 +1,4 @@
-unit WhoisIP;
+unit mainFrm;
 
 interface
 
@@ -18,7 +18,7 @@ type
     Layout1: TLayout;
     Layout2: TLayout;
     btnSearch: TButton;
-    Edit1: TEdit;
+    edtIPorAS: TEdit;
     Layout3: TLayout;
     layIpInfo: TLayout;
     layAsnInfo: TLayout;
@@ -43,5 +43,7 @@ var
 implementation
 
 {$R *.fmx}
+
+
 
 end.
